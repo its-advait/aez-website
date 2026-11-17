@@ -23,7 +23,7 @@ export interface HorizontalScrollerProps extends ComponentProps {
 }
 
 const HorizontalScroller = React.forwardRef<HTMLElement, HorizontalScrollerProps>(
-  ({ className, items, title, subtitle, itemWidth = 350, gap = 20, ...props }, ref) => {
+  ({ className, items, title, subtitle, itemWidth = 350, gap = 20, height: _height, showArrows: _showArrows, visibleItems: _visibleItems, ...props }, ref) => {
     if (!items?.length) return null;
 
     return (
