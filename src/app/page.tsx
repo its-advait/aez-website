@@ -4,21 +4,8 @@ import { Hero, InfoSection, CountersSection, AlumniDestinationsSection, ImageCar
 import { Button } from '@/components/ui';
 import { statsCounters, slideshowImages } from '@/lib/constants';
 import Image from 'next/image';
-import { useMemo } from 'react';
-
-// Fisher-Yates shuffle algorithm
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
 
 export default function Home() {
-  // Randomize the order of images in the carousel
-  const randomizedImages = useMemo(() => shuffleArray(slideshowImages), []);
 
   return (
     <main>
@@ -76,12 +63,12 @@ export default function Home() {
       <HorizontalScroller
         title="Our Community"
         subtitle="Experience the brotherhood and lifelong connections of AEZ"
-        items={randomizedImages}
+        items={slideshowImages}
         height="lg"
         itemWidth={350}
         gap={20}
         visibleItems={3}
-        showArrows={true}
+        showArrows={false}
         className="bg-neutral-50"
       />
 
